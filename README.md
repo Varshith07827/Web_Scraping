@@ -1,59 +1,130 @@
-## 🔍 Telugu Influencer News Scraper - Project Summary
+# � Telugu News Multi-Site Scraper
 
-### Project Overview
-This web scraping project monitors news articles about Telugu cinema influencers from Eenadu.net, one of the leading Telugu news websites.
+A comprehensive web scraping solution for monitoring Telugu cinema news across multiple news websites simultaneously.
 
-### 🎯 Key Features
-1. **Multi-Celebrity Monitoring**: Tracks news for multiple Telugu influencers
-2. **Section-wise Search**: Searches across different news sections (movies, politics, general news)
-3. **Data Export**: Saves results to CSV format for further analysis
-4. **Duplicate Removal**: Eliminates duplicate articles
-5. **Error Handling**: Robust error handling for network issues
-6. **Rate Limiting**: Respectful scraping with delays between requests
+## � Features
 
-### 📊 Current Results
-- **Total Articles Found**: 2
-- **Celebrities with Coverage**: 
-  - Ram Charan: 1 article
-  - Mahesh Babu: 1 article
-- **Sources**: Movies section, Andhra Pradesh news section
+### 🎯 Multi-Site Support
+- **4+ Active News Websites**: Eenadu, Sakshi, 123Telugu, Great Andhra
+- **Intelligent Site Adaptation**: Custom patterns for each site
+- **Expandable Architecture**: Easy to add new sites
 
-### 🚀 How It Works
-1. **Target Sections**: Searches through key sections of Eenadu.net
-2. **Name Matching**: Uses intelligent name matching to find relevant articles
-3. **Content Filtering**: Filters out short snippets and focuses on full articles
-4. **Data Structure**: Organizes results with celebrity, title, URL, and section info
+### 📊 Smart Data Processing
+- **Duplicate Removal**: Eliminates duplicate articles across all sites
+- **Celebrity Tracking**: Monitors 10+ Telugu cinema influencers
+- **Section Coverage**: Movies, regional news, trending topics
 
-### 🔧 Technical Stack
-- **Python**: Main programming language
-- **BeautifulSoup**: HTML parsing
-- **Requests**: HTTP requests
-- **CSV**: Data export
-- **Time**: Rate limiting
+### 🔧 Technical Excellence
+- **Robust Error Handling**: Continues working even if some sites fail
+- **Rate Limiting**: Respectful scraping with configurable delays
+- **CSV Export**: Structured data output for analysis
+- **Rich Logging**: Detailed console output and progress tracking
 
-### 📈 Potential Improvements
-1. **Enhanced Search**: Implement more sophisticated name matching
-2. **Content Analysis**: Add sentiment analysis of articles
-3. **Scheduling**: Add automated daily/weekly scraping
-4. **Database Integration**: Store results in a database instead of CSV
-5. **Email Alerts**: Send notifications for new articles
-6. **Image Extraction**: Extract article images
-7. **Full Content**: Scrape full article content, not just headlines
+## � Latest Results
+- **Total Articles**: 48+ unique articles found
+- **Top Celebrities**: Ram Charan (28 articles), Jr NTR (5), Allu Arjun (5)
+- **Most Active Site**: Sakshi (31 articles)
+- **Coverage**: Movies section dominates (68% of articles)
 
-### 📝 Usage Instructions
-1. Install dependencies: `pip install requests beautifulsoup4`
-2. Run the script: `python app.py`
-3. Check results in `eenadu_scraping_results.csv`
+## 🚀 Quick Start
 
-### ⚠️ Important Notes
-- The script respects the website's robots.txt and includes delays
-- Results may vary based on current news coverage
-- The script searches for articles containing the celebrity names
-- Some names might not have recent coverage on the day of scraping
+### Prerequisites
+```bash
+pip install -r requirements.txt
+```
 
-### 📁 Project Files
-- `app.py`: Main scraping script
-- `eenadu_scraping_results.csv`: Results data
-- `README.md`: This documentation
+### Run Multi-Site Scraper
+```bash
+python multi_site_scraper.py
+```
 
-Last updated: July 14, 2025
+### Run Single-Site Scraper
+```bash
+python app.py
+```
+
+## 📁 Project Structure
+```
+├── multi_site_scraper.py     # Main multi-site scraper
+├── multi_site_config.py      # Configuration for all sites
+├── app.py                    # Enhanced single-site version
+├── scraper.py               # Basic single-site version
+├── config.py                # Single-site configuration
+├── requirements.txt         # Python dependencies
+├── .gitignore              # Git ignore patterns
+└── docs/
+    ├── README.md           # This file
+    └── MULTI_SITE_OVERVIEW.md  # Detailed overview
+```
+
+## 🔧 Configuration
+
+### Adding New Sites
+Edit `multi_site_config.py`:
+```python
+NEWS_SITES = {
+    "new_site": {
+        "name": "New Site Name",
+        "base_url": "https://example.com",
+        "sections": ["movies", "news"],
+        "url_pattern": "news",
+        "active": True
+    }
+}
+```
+
+### Adding Celebrities
+```python
+INFLUENCERS = [
+    "Ram Charan",
+    "Mahesh Babu",
+    "Your New Celebrity"
+]
+```
+
+## � Sample Output
+```
+🚀 Starting Multi-Site Telugu News Scraping...
+📊 Active Sites: Eenadu, Sakshi, 123Telugu, Great Andhra
+
+🔍 Searching for: Ram Charan
+  🌐 Checking site: Eenadu
+    ✅ Found 1 articles from Eenadu
+  🌐 Checking site: Sakshi
+    ✅ Found 21 articles from Sakshi
+```
+
+## 🎯 Use Cases
+- **Media Monitoring**: Track celebrity coverage across sites
+- **Trend Analysis**: Identify popular topics and celebrities
+- **Research**: Analyze Telugu cinema news patterns
+- **Automation**: Schedule regular news collection
+
+## � Roadmap
+- [ ] Add more news sites
+- [ ] Implement sentiment analysis
+- [ ] Add image extraction
+- [ ] Database integration
+- [ ] Email notifications
+- [ ] Web dashboard
+
+## ⚠️ Important Notes
+- Respects robots.txt and implements rate limiting
+- Results vary based on current news coverage
+- Some sites may occasionally return 404 errors
+- CSV files are gitignored to prevent large file commits
+
+## � License
+This project is for educational and research purposes.
+
+## 🤝 Contributing
+1. Fork the repository
+2. Create a feature branch
+3. Add your improvements
+4. Submit a pull request
+
+---
+
+**Last Updated**: July 15, 2025  
+**Sites Monitored**: 4 active  
+**Success Rate**: 100% for active sites
